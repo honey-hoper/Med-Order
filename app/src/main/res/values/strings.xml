@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Med Order</string>
+
+    <!-- Product List Item !-->
+    <string name="price">Price:</string>
+    <string name="quantity">Quantity:</string>
+    <!-- Product List Item !-->
 </resources>

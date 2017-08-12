@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:theme="@style/TextLarge"
+        android:textColor="#000"
         tools:text="Product"/>
 
     <TextView
@@ -36,6 +37,7 @@
         android:layout_below="@id/pli_product_name"
         android:layout_toEndOf="@id/pli_price_label"
         android:theme="@style/TextNormal"
+        android:textColor="#000"
         tools:text="1220 Rs"/>
 
     <TextView
@@ -55,6 +57,7 @@
         android:layout_below="@id/pli_product_name"
         android:layout_toEndOf="@id/pli_quantity_label"
         android:theme="@style/TextNormal"
+        android:textColor="#000"
         tools:text="12"/>
 
 </RelativeLayout>

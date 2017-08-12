@@ -9,4 +9,10 @@
     <!-- Activity Product Detail -->
     <string name="add_to_cart">Add to Cart</string>
     <!-- Activity Product Detail -->
+
+    <!-- Dialog Quantity Picker -->
+    <string name="select_quantity">Select quantity</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <!-- Dialog Quantity Picker -->
 </resources>

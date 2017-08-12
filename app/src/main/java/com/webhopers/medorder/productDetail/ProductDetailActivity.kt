@@ -3,6 +3,7 @@ package com.webhopers.medorder.productDetail
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.webhopers.medorder.R
+import com.webhopers.medorder.dialogs.QuantityPickerDialog
 import com.webhopers.medorder.models.Product
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
@@ -15,6 +16,8 @@ class ProductDetailActivity : AppCompatActivity() {
         val product = intent.getSerializableExtra("PRODUCT") as Product
 
         setupUI(product)
+
+        apd_add_to_cart_btn.setOnClickListener { QuantityPickerDialog(this, 100)}
 
     }
 

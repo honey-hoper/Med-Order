@@ -5,4 +5,8 @@
     <string name="price">Price:</string>
     <string name="quantity">Quantity:</string>
     <!-- Product List Item !-->
+
+    <!-- Activity Product Detail -->
+    <string name="add_to_cart">Add to Cart</string>
+    <!-- Activity Product Detail -->
 </resources>

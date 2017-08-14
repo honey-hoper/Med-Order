@@ -61,6 +61,6 @@ class CartListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.cli_product_name.text = product.name
         itemView.cli_product_quantity.text = product.quantity
-        itemView.cli_product_price.text = "$totalPrice"
+        itemView.cli_product_price.text = "\u20B9$totalPrice"
     }
 }

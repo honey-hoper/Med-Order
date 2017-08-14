@@ -15,6 +15,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Text -->
+
     <style name="TextExtraLarge" parent="AppTheme">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
@@ -28,5 +30,26 @@
     <style name="TextNormal" parent="AppTheme">
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="TextSmall" parent="AppTheme">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Text -->
+
+    <!-- Buttons -->
+
+    <style name="RedButton" parent="Base.Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/Red</item>
+    </style>
+
+    <!-- Buttons -->
+
+    <!-- Menu -->
+    <style name="MenuStyle" parent="Base.Widget.AppCompat.ActionBar">
+        <item name="colorControlNormal">#FFF</item>
+        <item name="android:textColorSecondary">#FFF</item>
+    </style>
+    <!-- Menu -->
 
 </resources>

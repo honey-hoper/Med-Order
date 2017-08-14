@@ -7,33 +7,60 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.webhopers.medorder.R
+import com.webhopers.medorder.constants.Constants
+import com.webhopers.medorder.dialogs.QuantityPickerDialog
 import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.productDetail.ProductDetailActivity
+import kotlinx.android.synthetic.main.cart_list_item.view.*
 import kotlinx.android.synthetic.main.product_list_item.view.*
 
-class ListAdapter(val dataset: List<Product>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(val dataset: List<Product>,
+                  val viewType: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dataset[position])
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (this.viewType == Constants.PRODUCT_LIST) (holder as ProductListViewHolder).bind(dataset[position])
+        else (holder as CartListViewHolder).bind(dataset[position])
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.product_list_item, parent, false)
-        return ViewHolder(v)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val v: View
+        if (this.viewType == Constants.PRODUCT_LIST) {
+            v = LayoutInflater.from(parent.context).inflate(R.layout.product_list_item, parent, false)
+            return ProductListViewHolder(v)
+        }
+        else {
+            v = LayoutInflater.from(parent.context).inflate(R.layout.cart_list_item, parent, false)
+            return CartListViewHolder(v)
+        }
     }
 
     override fun getItemCount() = dataset.size
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(product: Product) {
-            itemView.pli_product_name.text = product.name
-            itemView.pli_product_price.text =  "\u20B9" + product.price
-            itemView.pli_product_quantity.text = product.quantity
-            itemView.setOnClickListener {
-                val intent = Intent(itemView.context, ProductDetailActivity::class.java)
-                intent.putExtra("PRODUCT", product)
-                startActivity(itemView.context, intent, null)
-            }
+}
+
+class ProductListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun bind(product: Product) {
+        itemView.pli_product_name.text = product.name
+        itemView.pli_product_price.text =  "\u20B9" + product.price
+        itemView.pli_product_quantity.text = product.quantity
+        itemView.setOnClickListener {
+            val intent = Intent(itemView.context, ProductDetailActivity::class.java)
+            intent.putExtra("PRODUCT", product)
+            startActivity(itemView.context, intent, null)
         }
+        itemView.pli_image_btn.setOnClickListener {
+            QuantityPickerDialog(it.context, product.quantity!!.toInt())
+        }
+    }
+}
+
+class CartListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun bind(product: Product) {
+        val totalPrice = product.quantity!!.toFloat() * product.price!!.toFloat()
+
+        itemView.cli_product_name.text = product.name
+        itemView.cli_product_quantity.text = product.quantity
+        itemView.cli_product_price.text = "$totalPrice"
     }
 }

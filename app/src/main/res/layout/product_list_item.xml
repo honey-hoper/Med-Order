@@ -60,4 +60,14 @@
         android:textColor="#000"
         tools:text="12"/>
 
+    <ImageButton
+        android:id="@+id/pli_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="8dp"
+        android:src="@drawable/cart_pink"
+        android:background="@null"/>
+
 </RelativeLayout>

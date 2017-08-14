@@ -15,4 +15,13 @@
     <string name="done">Done</string>
     <string name="cancel">Cancel</string>
     <!-- Dialog Quantity Picker -->
+
+    <!-- Activity Cart -->
+    <string name="cart">Cart</string>
+    <string name="place_order">Place Order</string>
+    <!-- Activity Cart -->
+
+    <!-- Cart list Item -->
+    <string name="remove">Remove</string>
+    <!-- Cart list Item -->
 </resources>

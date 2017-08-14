@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.squareup.picasso.Picasso
 import com.webhopers.medorder.R
 import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.dialogs.QuantityPickerDialog
 import com.webhopers.medorder.models.Product
+import com.webhopers.medorder.utils.convertDpToPixels
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import org.jsoup.Jsoup
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -21,24 +24,39 @@ class ProductDetailActivity : AppCompatActivity() {
 
         initUI(product)
 
-        apd_add_to_cart_btn.setOnClickListener { QuantityPickerDialog(this, product.quantity!!.toInt())}
+        apd_add_to_cart_btn.setOnClickListener { QuantityPickerDialog(this, if (!product.quantity.isNullOrBlank()) product.quantity!!.toInt() else 10) }
 
     }
 
     private fun initUI(product: Product?) {
         if (product != null) {
             apd_product_name.text = product.name
-            apd_product_price.text = "\u20B9" + product.price
-            apd_product_quantity.text = product.quantity
-            apd_product_desc.text = product.desc
+            apd_product_price.text = if (!product.price.isNullOrBlank()) "\u20B9" + product.price else "N/A"
+            apd_product_quantity.text = if (!product.quantity.isNullOrBlank()) product.quantity else "N/A"
+            apd_product_packing.text = getPackingSize(product)
+            apd_product_desc.text = if (!product.desc.isNullOrBlank()) {
+                Jsoup.parse(product.desc).text().replace(Regex("\\s*\\+\\s*"), "\n")
+            } else "N/A"
         }
         setupToolbar()
+        val url = product?.images?.get(0)?.src
+        if (!url.isNullOrBlank()) getImage(url)
+        else {}
     }
 
     private fun setupToolbar() {
         setSupportActionBar(apd_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+    }
+
+    private fun getImage(url: String?) {
+        Picasso.with(this)
+                .load(url)
+                .resize(convertDpToPixels(400f, resources).toInt(), convertDpToPixels(400f, resources).toInt())
+                .centerCrop()
+                .into(apd_image_view)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -61,5 +79,21 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun startCartActivity() {
         startActivity(Intent(this, CartActivity::class.java))
+    }
+
+    private fun getPackingSize(product: Product?): String {
+        if (product != null) {
+            val attrs = product.attributes
+            if (attrs != null && !attrs.isEmpty()) {
+                val attr = attrs[0]
+                if (attr != null) {
+                    val opts = attr.options
+                    if (opts != null && !opts.isEmpty()) {
+                        return opts[0]
+                    }
+                }
+            }
+        }
+        return "N/A"
     }
 }

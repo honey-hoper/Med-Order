@@ -48,7 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/test"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:background="#E3E8F8"/>
 
             <TextView
                 android:id="@+id/apd_product_name"
@@ -98,6 +99,27 @@
                 android:layout_toEndOf="@id/apd_product_quantity_label"
                 android:theme="@style/TextNormal"
                 android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/product_packing_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_below="@id/apd_product_name"
+                android:layout_toStartOf="@id/apd_product_packing"
+                android:theme="@style/TextNormal"
+                android:text="@string/packing"/>
+
+            <TextView
+                android:id="@+id/apd_product_packing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/apd_product_name"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:theme="@style/TextNormal"
+                android:textColor="#000"
+                tools:text="10x10"/>
 
             <TextView
                 android:id="@+id/apd_product_desc"

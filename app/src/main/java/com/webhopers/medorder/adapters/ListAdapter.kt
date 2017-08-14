@@ -42,15 +42,18 @@ class ListAdapter(val dataset: List<Product>,
 class ProductListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(product: Product) {
         itemView.pli_product_name.text = product.name
-        itemView.pli_product_price.text =  "\u20B9" + product.price
-        itemView.pli_product_quantity.text = product.quantity
+        itemView.pli_product_price.text =  if (!product.price.isNullOrBlank()) "\u20B9" + product.price else "N/A"
+        itemView.pli_product_quantity.text = product.quantity ?: "N/A"
         itemView.setOnClickListener {
             val intent = Intent(itemView.context, ProductDetailActivity::class.java)
             intent.putExtra("PRODUCT", product)
             startActivity(itemView.context, intent, null)
         }
         itemView.pli_image_btn.setOnClickListener {
-            QuantityPickerDialog(it.context, product.quantity!!.toInt())
+            val quantity = if (product.quantity != null) {
+                product.quantity!!.toInt()
+            } else 10
+            QuantityPickerDialog(it.context, quantity)
         }
     }
 }

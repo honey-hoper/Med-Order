@@ -8,6 +8,7 @@
 
     <!-- Activity Product Detail -->
     <string name="add_to_cart">Add to Cart</string>
+    <string name="packing">Packing:</string>
     <!-- Activity Product Detail -->
 
     <!-- Dialog Quantity Picker -->

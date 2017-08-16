@@ -6,6 +6,9 @@ import java.io.Serializable
 
 
 class Product(
+        @SerializedName("id")
+        @Expose
+        var id: String? = null,
         @SerializedName("name")
         @Expose
         var name: String? = null,
@@ -37,3 +40,10 @@ class Attribute(
         @Expose
         var options: List<String>? = null
 ) : Serializable
+
+class ProductF(
+        var id: String? = null,
+        var name: String? = null,
+        var orderedQuantity: Long? = null,
+        var totalPrice: Long? = null
+)

@@ -24,7 +24,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         initUI(product)
 
-        apd_add_to_cart_btn.setOnClickListener { QuantityPickerDialog(this, if (!product.quantity.isNullOrBlank()) product.quantity!!.toInt() else 10) }
+        apd_add_to_cart_btn.setOnClickListener { QuantityPickerDialog(this, product) }
 
     }
 

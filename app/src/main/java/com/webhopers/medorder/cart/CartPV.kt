@@ -5,10 +5,10 @@ import com.webhopers.medorder.interfaces.View
 import com.webhopers.medorder.models.Product
 
 class CartPresenter(val view: CartView) {
-    val dataset: MutableList<Product>
+//    val dataset: MutableList<Product>
     init {
-        dataset = ProductService.getProducts().toMutableList()
-        view.setAdapter(dataset)
+//        dataset = ProductService.getProducts().toMutableList()
+//        view.setAdapter(dataset)
     }
 }
 

@@ -13,7 +13,6 @@ import android.view.View
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.ListAdapter
 import com.webhopers.medorder.cart.CartActivity
-import com.webhopers.medorder.constants.Constants
 import com.webhopers.medorder.models.Product
 import kotlinx.android.synthetic.main.activity_product_list.*
 
@@ -73,7 +72,7 @@ class ProductListActivity :
     }
 
     override fun setAdater(dataset: List<Product>) {
-        apl_recyler_view.adapter = ListAdapter(dataset, Constants.PRODUCT_LIST)
+        apl_recyler_view.adapter = ListAdapter(dataset)
     }
 
 }

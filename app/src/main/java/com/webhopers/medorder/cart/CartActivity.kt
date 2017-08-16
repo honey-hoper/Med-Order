@@ -3,12 +3,10 @@ package com.webhopers.medorder.cart
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.google.firebase.database.FirebaseDatabase
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.FirebaseCartAdapter
-import com.webhopers.medorder.adapters.ListAdapter
-import com.webhopers.medorder.constants.Constants
-import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.services.firebase.FirebaseDatabaseService
 import kotlinx.android.synthetic.main.activity_cart.*
 
@@ -16,13 +14,17 @@ class CartActivity :
         CartView,
         AppCompatActivity() {
 
+    lateinit var presenter: CartPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        CartPresenter(this)
+        presenter = CartPresenter(this)
 
         initUI()
+
+        ac_place_order_btn.setOnClickListener { presenter.onPlaceOrderClick() }
     }
 
     private fun initUI() {
@@ -55,9 +57,17 @@ class CartActivity :
         return true
     }
 
-    // View Functions
-    override fun setAdapter(dataset: MutableList<Product>) {
-        ac_recycler_view.adapter = ListAdapter(dataset, Constants.CART_LIST)
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.stop()
     }
+
+
+    // View Functions
+    override fun showProgressBar(bool: Boolean) {
+        if (bool) ac_progress_bar.visibility = View.VISIBLE
+        else ac_progress_bar.visibility = View.INVISIBLE
+    }
+
 
 }

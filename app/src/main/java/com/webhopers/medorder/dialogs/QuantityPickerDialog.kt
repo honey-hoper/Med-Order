@@ -2,6 +2,7 @@ package com.webhopers.medorder.dialogs
 
 import android.content.Context
 import android.support.v7.app.AlertDialog
+import android.widget.Toast
 import com.webhopers.medorder.R
 import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.models.ProductF
@@ -31,6 +32,7 @@ class QuantityPickerDialog (context: Context, product: Product) {
 
                         val productF = ProductF(id, name, orderedQuantity.toLong(), totalPrice.toLong())
                         FirebaseDatabaseService.addToCart("user_id", productF)
+                        Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show()
                         dismiss()
                     }
 

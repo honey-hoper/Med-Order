@@ -28,11 +28,31 @@ class FirebaseDatabaseService {
                     .removeValue()
         }
 
+        fun isCartEmpty(userId: String): Single<Boolean> {
+            return Single.create<Boolean> {e ->
+                firebaseDatabase.getReference(PATH_CART)
+                        .child(userId)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
+                                e.onError(Throwable("Cancelled"))
+                            }
+
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                if (snapshot.hasChildren())
+                                    e.onSuccess(true)
+                                else
+                                    e.onSuccess(false)
+                            }
+
+                        })
+            }
+        }
+
         fun getCartItems(userId: String): Single<ArrayList<ProductF>?> {
             return Single.create<ArrayList<ProductF>> { e ->
                 firebaseDatabase.getReference(PATH_CART)
                         .child(userId)
-                        .addListenerForSingleValueEvent(object : ValueEventListener{
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(error: DatabaseError) {
                                 e.onError(Throwable("Cancelled"))
                             }

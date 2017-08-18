@@ -12,6 +12,7 @@ import android.view.MenuItem
 import android.view.View
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.ListAdapter
+import com.webhopers.medorder.adapters.ScrollListener
 import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.models.Product
 import kotlinx.android.synthetic.main.activity_product_list.*
@@ -71,8 +72,13 @@ class ProductListActivity :
         else apl_progress_bar.visibility = View.INVISIBLE
     }
 
-    override fun setAdater(dataset: List<Product>) {
-        apl_recyler_view.adapter = ListAdapter(dataset)
+    override fun setAdater(dataset: MutableList<Product>, totalProducts: Int) {
+        apl_recyler_view.apply {
+            val adapter = ListAdapter(dataset, totalProducts)
+            this.adapter = adapter
+            addOnScrollListener(ScrollListener(LinearLayoutManager(context), adapter))
+        }
+
     }
 
 }

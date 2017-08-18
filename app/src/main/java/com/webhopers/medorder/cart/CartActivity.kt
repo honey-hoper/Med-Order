@@ -30,6 +30,7 @@ class CartActivity :
     private fun initUI() {
         setupToolbar()
         setupRecyclerView()
+        showProgressBar(true)
     }
 
     private fun setupToolbar() {

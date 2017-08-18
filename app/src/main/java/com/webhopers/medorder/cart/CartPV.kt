@@ -11,6 +11,7 @@ import com.webhopers.medorder.services.woocommerce.WooCommerceService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +20,24 @@ import retrofit2.Response
 class CartPresenter(val view: CartView): Presenter {
 
     val disposable = CompositeDisposable()
+
+    init {
+        isCartEmpty()
+    }
+
+    fun isCartEmpty() {
+        view.showProgressBar(true)
+        disposable.add(FirebaseDatabaseService.isCartEmpty("user_id")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                        onError = {
+                            view.showProgressBar(false)
+                        },
+                        onSuccess = {
+                            view.showProgressBar(false)
+                        }))
+    }
 
     fun onPlaceOrderClick() {
         view.showProgressBar(true)

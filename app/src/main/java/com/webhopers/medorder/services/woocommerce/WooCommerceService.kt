@@ -13,7 +13,7 @@ interface WooCommerceService {
 
     @GET("products")
     fun getProducts(
-            @Query("per_page") perPage: String = "100",
+            @Query("per_page") perPage: String = "50",
             @Query("offset") offset: String = "0",
             @Query("order") order: String = "asc",
             @Query("orderby") orderBy: String = "title"): Call<List<Product>>
@@ -22,6 +22,4 @@ interface WooCommerceService {
     @POST("orders")
     fun createOrder(@Body body: Order): Call<OrderResponse>
 
-    @GET("products/count")
-    fun getProductCount(): Call<Int>
 }

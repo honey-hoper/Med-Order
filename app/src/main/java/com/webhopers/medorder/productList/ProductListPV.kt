@@ -1,7 +1,6 @@
 package com.webhopers.medorder.productList
 
 import android.util.Log
-import com.webhopers.medorder.fake.fakeServices.ProductService
 import com.webhopers.medorder.interfaces.Presenter
 import com.webhopers.medorder.interfaces.View
 import com.webhopers.medorder.models.Product
@@ -12,10 +11,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ProductListPresenter(val view: ProductListView): Presenter {
-    lateinit var dataset: List<Product>
     init {
-//        dataset = ProductService.getProducts()
-//        view.setAdater(dataset)
+
         view.showProgressBar(true)
         WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
                 .getProducts()
@@ -23,8 +20,9 @@ class ProductListPresenter(val view: ProductListView): Presenter {
                     override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
                         view.showProgressBar(false)
                         if (response.isSuccessful) {
-                            dataset = response.body()!!
-                            view.setAdater(dataset)
+                            val dataset = response.body()!!
+                            val totalProducts = response.headers().get("X-WP-Total")!!.toInt()
+                            view.setAdater(dataset.toMutableList(), totalProducts)
                         } else Log.d("Error", "${response.code()}")
                     }
 
@@ -38,5 +36,5 @@ class ProductListPresenter(val view: ProductListView): Presenter {
 }
 
 interface ProductListView: View {
-    fun setAdater(dataset: List<Product>)
+    fun setAdater(dataset: MutableList<Product>, totalProducts: Int)
 }

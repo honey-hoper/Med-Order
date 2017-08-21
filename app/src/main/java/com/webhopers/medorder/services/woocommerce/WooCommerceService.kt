@@ -1,8 +1,6 @@
 package com.webhopers.medorder.services.woocommerce
 
-import com.webhopers.medorder.models.Order
-import com.webhopers.medorder.models.OrderResponse
-import com.webhopers.medorder.models.Product
+import com.webhopers.medorder.models.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -21,5 +19,8 @@ interface WooCommerceService {
 
     @POST("orders")
     fun createOrder(@Body body: Order): Call<OrderResponse>
+
+    @POST("customers")
+    fun createCustomer(@Body body: Customer): Call<CustomerResponse>
 
 }

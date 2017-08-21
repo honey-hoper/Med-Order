@@ -25,4 +25,13 @@
     <!-- Cart list Item -->
     <string name="remove">Remove</string>
     <!-- Cart list Item -->
+
+    <!-- Activity Register -->
+    <string name="first_name">Enter First Name</string>
+    <string name="last_name">Enter Last Name</string>
+    <string name="email">Enter Email</string>
+    <string name="password">Enter Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <!-- Activity Register -->
 </resources>

@@ -16,6 +16,20 @@ interface WooCommerceService {
             @Query("order") order: String = "asc",
             @Query("orderby") orderBy: String = "title"): Call<List<Product>>
 
+    @GET("products")
+    fun getProductsByCategory(
+            @Query("category") category: String,
+            @Query("per_page") perPage: String = "100",
+            @Query("order") order: String = "asc",
+            @Query("orderby") orderBy: String = "title"
+    ): Call<List<Product>>
+
+    @GET("products/categories")
+    fun getProductCategories(
+            @Query("per_page") perPage: String = "100",
+            @Query("order") order: String = "asc"
+    ): Call<List<ProductCategory>>
+
 
     @POST("orders")
     fun createOrder(@Body body: Order): Call<OrderResponse>

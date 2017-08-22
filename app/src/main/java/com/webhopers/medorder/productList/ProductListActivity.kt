@@ -10,30 +10,50 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.ListAdapter
 import com.webhopers.medorder.adapters.ScrollListener
 import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.models.Product
+import com.webhopers.medorder.models.ProductCategory
 import kotlinx.android.synthetic.main.activity_product_list.*
+import kotlinx.android.synthetic.main.nav_list_item.view.*
 
 class ProductListActivity :
         ProductListView,
         AppCompatActivity() {
 
+    lateinit var map: Map<String, String>
+    lateinit var presenter: ProductListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
 
-        ProductListPresenter(this)
+        presenter = ProductListPresenter(this)
+        val cat = intent.getSerializableExtra("PRODUCT_CAT") as? List<ProductCategory>
+        if (cat != null) {
+            map = cat.associateBy(keySelector = {it.name!!}, valueTransform = {it.id!! })
+        }
 
         initUI()
     }
 
     private fun initUI() {
+        setUpNavDrawer()
         setUpRecyclerView()
         setSupportActionBar(apl_toolbar)
+    }
+
+    private fun setUpNavDrawer() {
+        apl_nav_list_view.adapter = ArrayAdapter(this, R.layout.nav_list_item, R.id.nli_cat_name, map.map { it.key })
+        apl_nav_list_view.setOnItemClickListener { adapterView, view, i, l ->
+            val id = map.get(view.nli_cat_name.text.toString())!!
+            apl_drawer.closeDrawers()
+            presenter.changeAdapter(id)
+        }
+
     }
 
     private fun setUpRecyclerView() {
@@ -76,7 +96,7 @@ class ProductListActivity :
         apl_recyler_view.apply {
             val adapter = ListAdapter(dataset, totalProducts)
             this.adapter = adapter
-            addOnScrollListener(ScrollListener(LinearLayoutManager(context), adapter))
+            //addOnScrollListener(ScrollListener(LinearLayoutManager(context), adapter))
         }
 
     }

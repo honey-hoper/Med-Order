@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object WooCommerceRetrofitClient {
-    val INNOVEXIA_BASE_URL = "http://www.innovexia.com/wp-json/wc/v1/"
+    val INNOVEXIA_BASE_URL = "http://www.innovexia.com/wp-json/wc/v2/"
     val retrofit by lazy {
         val oauth1WooCommerce = OAuthInterceptor()
         val interceptor = HttpLoggingInterceptor()

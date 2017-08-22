@@ -41,6 +41,23 @@ class Attribute(
         var options: List<String>? = null
 ) : Serializable
 
+class ProductCategory(
+        @SerializedName("id")
+        @Expose
+        var id: String? = null,
+        @SerializedName("name")
+        @Expose
+        var name: String? = null
+) : Serializable
+
+
+class ProductCategoryList(
+        var list: List<ProductCategory>? = null
+)
+
+/*
+        Firebase Model
+ */
 class ProductF(
         var id: String? = null,
         var name: String? = null,

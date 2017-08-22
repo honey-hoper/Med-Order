@@ -4,6 +4,7 @@ package com.webhopers.medorder.productList
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -13,7 +14,6 @@ import android.view.View
 import android.widget.ArrayAdapter
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.ListAdapter
-import com.webhopers.medorder.adapters.ScrollListener
 import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.models.ProductCategory
@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.nav_list_item.view.*
 class ProductListActivity :
         ProductListView,
         AppCompatActivity() {
+
+    lateinit var drawerToggle: ActionBarDrawerToggle
 
     lateinit var map: Map<String, String>
     lateinit var presenter: ProductListPresenter
@@ -37,6 +39,8 @@ class ProductListActivity :
             map = cat.associateBy(keySelector = {it.name!!}, valueTransform = {it.id!! })
         }
 
+        drawerToggle = ActionBarDrawerToggle(this, apl_drawer, R.string.open_drawer, R.string.close_drawer)
+
         initUI()
     }
 
@@ -44,6 +48,7 @@ class ProductListActivity :
         setUpNavDrawer()
         setUpRecyclerView()
         setSupportActionBar(apl_toolbar)
+        setUpActionBarDrawerToggle()
     }
 
     private fun setUpNavDrawer() {
@@ -66,12 +71,21 @@ class ProductListActivity :
         }
     }
 
+    private fun setUpActionBarDrawerToggle() {
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        drawerToggle.syncState()
+        apl_drawer.addDrawerListener(drawerToggle)
+
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (drawerToggle.onOptionsItemSelected(item)) return true
         val id = item.itemId
         when (id) {
             R.id.action_open_cart -> startCartActivity()

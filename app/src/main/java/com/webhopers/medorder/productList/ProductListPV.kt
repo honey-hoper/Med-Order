@@ -11,28 +11,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ProductListPresenter(val view: ProductListView): Presenter {
-    init {
-
-//        view.showProgressBar(true)
-//        WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
-//                .getProducts()
-//                .enqueue(object :  Callback<List<Product>> {
-//                    override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
-//                        view.showProgressBar(false)
-//                        if (response.isSuccessful) {
-//                            val dataset = response.body()!!
-//                            val totalProducts = response.headers().get("X-WP-Total")!!.toInt()
-//                            view.setAdater(dataset.toMutableList(), totalProducts)
-//                        } else Log.d("Error", "${response.code()}")
-//                    }
-//
-//                    override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-//                        view.showProgressBar(false)
-//                        Log.d("Error", t.message)
-//                    }
-//                })
-
-    }
 
     fun changeAdapter(id: String) {
         view.setAdater(mutableListOf(), 0)

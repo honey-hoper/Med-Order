@@ -13,6 +13,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="colorControlNormal">#FFF</item>
     </style>
 
     <!-- Text -->
@@ -46,7 +48,7 @@
     <!-- Buttons -->
 
     <!-- Menu -->
-    <style name="MenuStyle" parent="Base.Widget.AppCompat.ActionBar">
+    <style name="MenuStyle" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">#FFF</item>
         <item name="android:textColorSecondary">#FFF</item>
     </style>

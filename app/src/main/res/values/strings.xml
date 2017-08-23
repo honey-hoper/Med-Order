@@ -25,4 +25,8 @@
     <!-- Cart list Item -->
     <string name="remove">Remove</string>
     <!-- Cart list Item -->
+
+    <!-- Menu -->
+    <string name="my_orders">My Orders</string>
+    <!-- Menu -->
 </resources>

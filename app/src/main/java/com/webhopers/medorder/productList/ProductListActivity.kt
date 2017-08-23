@@ -15,6 +15,7 @@ import com.webhopers.medorder.adapters.ListAdapter
 import com.webhopers.medorder.adapters.ScrollListener
 import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.models.Product
+import com.webhopers.medorder.myOrders.MyOrdersActivity
 import kotlinx.android.synthetic.main.activity_product_list.*
 
 class ProductListActivity :
@@ -55,12 +56,17 @@ class ProductListActivity :
         val id = item.itemId
         when (id) {
             R.id.action_open_cart -> startCartActivity()
+            R.id.action_my_orders -> startMyOrdersActivity()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun startCartActivity() {
         startActivity(Intent(this, CartActivity::class.java))
+    }
+
+    private fun startMyOrdersActivity() {
+        startActivity(Intent(this, MyOrdersActivity::class.java))
     }
 
     /*

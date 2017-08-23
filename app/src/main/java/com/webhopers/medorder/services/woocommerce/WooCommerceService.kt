@@ -22,4 +22,7 @@ interface WooCommerceService {
     @POST("orders")
     fun createOrder(@Body body: Order): Call<OrderResponse>
 
+    @GET("orders")
+    fun getOrderByCustomerId(@Query("customer") customerId: Long = 18): Call<List<OrderResponse>>
+
 }

@@ -40,4 +40,8 @@
     <string name="close_drawer">Close</string>
     <!-- Drawer -->
 
+    <!-- Menu -->
+    <string name="my_orders">My Orders</string>
+    <!-- Menu -->
+
 </resources>

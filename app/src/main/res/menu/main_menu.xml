@@ -7,4 +7,8 @@
         android:icon="@drawable/cart"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/action_my_orders"
+        android:title="@string/my_orders"
+        app:showAsAction="never"/>
+
 </menu>

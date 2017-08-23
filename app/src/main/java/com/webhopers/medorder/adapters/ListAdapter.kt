@@ -74,12 +74,29 @@ class ProductListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         itemView.pli_product_name.text = product.name
         itemView.pli_product_price.text =  if (!product.price.isNullOrBlank()) "\u20B9" + product.price else "N/A"
         itemView.pli_product_quantity.text = product.quantity ?: "N/A"
+        itemView.pli_product_packing.text = getPackingSize(product)
         itemView.setOnClickListener {
             val intent = Intent(itemView.context, ProductDetailActivity::class.java)
             intent.putExtra("PRODUCT", product)
             startActivity(itemView.context, intent, null)
         }
         itemView.pli_image_btn.setOnClickListener { QuantityPickerDialog(it.context, product) }
+    }
+
+    private fun getPackingSize(product: Product?): String {
+        if (product != null) {
+            val attrs = product.attributes
+            if (attrs != null && !attrs.isEmpty()) {
+                val attr = attrs[0]
+                if (attr != null) {
+                    val opts = attr.options
+                    if (opts != null && !opts.isEmpty()) {
+                        return opts[0]
+                    }
+                }
+            }
+        }
+        return "N/A"
     }
 }
 

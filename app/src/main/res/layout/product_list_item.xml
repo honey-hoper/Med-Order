@@ -14,31 +14,16 @@
 
     <TextView
         android:id="@+id/pli_product_name"
-        android:layout_width="wrap_content"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:theme="@style/TextLarge"
         android:textColor="#000"
+        android:maxLines="1"
+        android:ellipsize="end"
         tools:text="Product"/>
 
-    <TextView
-        android:id="@+id/pli_price_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_below="@id/pli_product_name"
-        android:theme="@style/TextNormal"
-        android:text="@string/price"/>
 
-    <TextView
-        android:id="@+id/pli_product_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pli_product_name"
-        android:layout_toEndOf="@id/pli_price_label"
-        android:theme="@style/TextNormal"
-        android:textColor="#000"
-        tools:text="1220 Rs"/>
 
     <TextView
         android:id="@+id/pli_quantity_label"
@@ -60,14 +45,53 @@
         android:textColor="#000"
         tools:text="12"/>
 
-    <ImageButton
-        android:id="@+id/pli_image_btn"
+    <TextView
+        android:id="@+id/pli_packing_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:padding="8dp"
-        android:src="@drawable/cart_pink"
-        android:background="@null"/>
+        android:layout_below="@id/pli_product_name"
+        android:layout_marginEnd="8dp"
+        android:theme="@style/TextNormal"
+        android:text="@string/packing"/>
+
+    <TextView
+        android:id="@+id/pli_product_packing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pli_product_name"
+        android:layout_toEndOf="@id/pli_packing_label"
+        android:theme="@style/TextNormal"
+        android:textColor="#000"
+        tools:text="10x10"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true">
+
+
+        <TextView
+            android:id="@+id/pli_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/TextNormal"
+            android:textColor="#000"
+            tools:text="1220 Rs"/>
+
+        <ImageButton
+            android:id="@+id/pli_image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:src="@drawable/cart_pink"
+            android:background="@null"/>
+
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.webhopers.medorder.myOrders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.MyOrdersAdapter
 import com.webhopers.medorder.models.OrderResponse
@@ -19,6 +20,8 @@ class MyOrdersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_orders)
 
+        initUI()
+
         WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
                 .getOrderByCustomerId()
                 .enqueue(object : Callback<List<OrderResponse>> {
@@ -34,5 +37,19 @@ class MyOrdersActivity : AppCompatActivity() {
                         println(t.message)
                     }
                 })
+    }
+
+    private fun initUI() {
+        setSupportActionBar(amo_toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

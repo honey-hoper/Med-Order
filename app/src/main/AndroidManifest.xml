@@ -41,7 +41,8 @@
 
         </activity>
 
-        <activity android:name=".myOrders.MyOrdersActivity"/>
+        <activity android:name=".myOrders.MyOrdersActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -35,6 +35,7 @@ class CartActivity :
 
     private fun setupToolbar() {
         setSupportActionBar(ac_toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)

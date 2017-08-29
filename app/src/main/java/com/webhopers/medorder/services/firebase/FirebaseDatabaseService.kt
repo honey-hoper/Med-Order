@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.webhopers.medorder.models.ProductF
+import io.reactivex.Observable
 import io.reactivex.Single
 
 class FirebaseDatabaseService {
@@ -28,20 +29,20 @@ class FirebaseDatabaseService {
                     .removeValue()
         }
 
-        fun isCartEmpty(userId: String): Single<Boolean> {
-            return Single.create<Boolean> {e ->
+        fun cartListener(userId: String): Observable<Boolean> {
+            return Observable.create<Boolean> {e ->
                 firebaseDatabase.getReference(PATH_CART)
                         .child(userId)
-                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                        .addValueEventListener(object : ValueEventListener {
                             override fun onCancelled(error: DatabaseError) {
                                 e.onError(Throwable("Cancelled"))
                             }
 
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.hasChildren())
-                                    e.onSuccess(true)
+                                    e.onNext(false)
                                 else
-                                    e.onSuccess(false)
+                                    e.onNext(true)
                             }
 
                         })

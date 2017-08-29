@@ -1,12 +1,17 @@
 package com.webhopers.medorder.cart
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.FirebaseCartAdapter
+import com.webhopers.medorder.myOrders.MyOrdersActivity
 import com.webhopers.medorder.services.firebase.FirebaseDatabaseService
 import kotlinx.android.synthetic.main.activity_cart.*
 
@@ -54,6 +59,23 @@ class CartActivity :
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.overflow_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            R.id.om_action_my_orders -> startMyOrdersActivity()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun startMyOrdersActivity() {
+        startActivity(Intent(this, MyOrdersActivity::class.java))
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -71,5 +93,11 @@ class CartActivity :
         else ac_progress_bar.visibility = View.INVISIBLE
     }
 
+    override fun makeToast(message: String) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+    override fun enablePlaceOrderButton(bool: Boolean) {
+        if (bool) ac_place_order_btn.isEnabled = true
+        else ac_place_order_btn.isEnabled = false
+    }
 
 }

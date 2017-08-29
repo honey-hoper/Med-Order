@@ -3,7 +3,7 @@ package com.webhopers.medorder.myOrders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Menu
+import android.view.View
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.MyOrdersAdapter
 import com.webhopers.medorder.models.OrderResponse
@@ -27,6 +27,7 @@ class MyOrdersActivity : AppCompatActivity() {
                 .enqueue(object : Callback<List<OrderResponse>> {
                     override fun onResponse(call: Call<List<OrderResponse>>, response: Response<List<OrderResponse>>) {
                         if (response.isSuccessful) {
+                            showProgressBar(false)
                             val body = response.body()!!
                             amo_recycler_view.layoutManager = LinearLayoutManager(this@MyOrdersActivity)
                             amo_recycler_view.adapter = MyOrdersAdapter(body)
@@ -34,6 +35,7 @@ class MyOrdersActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<List<OrderResponse>>, t: Throwable) {
+                        showProgressBar(false)
                         println(t.message)
                     }
                 })
@@ -46,6 +48,12 @@ class MyOrdersActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
+        showProgressBar(true)
+    }
+
+    fun showProgressBar(bool: Boolean) {
+        if (bool) amo_progress_bar.visibility = View.VISIBLE
+        else amo_progress_bar.visibility = View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

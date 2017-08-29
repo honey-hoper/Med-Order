@@ -51,16 +51,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/LightBlack">
 
-        <TextView
-            android:id="@+id/ac_total_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:theme="@style/TextNormal"
-            android:textColor="#FFF"
-            tools:text="2300"/>
-
         <Button
             android:id="@+id/ac_place_order_btn"
             android:layout_width="wrap_content"

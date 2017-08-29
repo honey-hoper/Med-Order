@@ -22,20 +22,26 @@ class CartPresenter(val view: CartView): Presenter {
     val disposable = CompositeDisposable()
 
     init {
+        view.enablePlaceOrderButton(false)
         isCartEmpty()
     }
 
     fun isCartEmpty() {
         view.showProgressBar(true)
-        disposable.add(FirebaseDatabaseService.isCartEmpty("user_id")
+        disposable.add(FirebaseDatabaseService.cartListener("user_id")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onError = {
                             view.showProgressBar(false)
                         },
-                        onSuccess = {
+                        onComplete = {
                             view.showProgressBar(false)
+                        },
+                        onNext = {
+                            view.showProgressBar(false)
+                            if (it)  view.enablePlaceOrderButton(false)
+                            else view.enablePlaceOrderButton(true)
                         }))
     }
 
@@ -47,6 +53,7 @@ class CartPresenter(val view: CartView): Presenter {
                 .subscribeWith(object : DisposableSingleObserver<ArrayList<ProductF>?>() {
                     override fun onError(e: Throwable) {
                         view.showProgressBar(false)
+                        view.makeToast("Network Error")
                     }
 
                     override fun onSuccess(list: ArrayList<ProductF>?) {
@@ -56,14 +63,17 @@ class CartPresenter(val view: CartView): Presenter {
                                     .enqueue(object : Callback<OrderResponse> {
                                         override fun onResponse(call: Call<OrderResponse>, response: Response<OrderResponse>) {
                                             view.showProgressBar(false)
-                                            if (response.isSuccessful) FirebaseDatabaseService.emptyCart("user_id")
+                                            if (response.isSuccessful) {
+                                                view.makeToast("Order Placed")
+                                                FirebaseDatabaseService.emptyCart("user_id")
+                                            } else { view.makeToast("Network Error")}
                                         }
 
                                         override fun onFailure(call: Call<OrderResponse>, t: Throwable?) {
                                             view.showProgressBar(false)
+                                            view.makeToast("Network Error")
                                         }
                                     })
-
                         }
                     }
                 }))
@@ -79,5 +89,6 @@ class CartPresenter(val view: CartView): Presenter {
 }
 
 interface CartView: View {
-
+    fun makeToast(message: String)
+    fun enablePlaceOrderButton(bool: Boolean)
 }

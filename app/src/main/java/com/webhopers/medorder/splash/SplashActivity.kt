@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.google.gson.Gson
 import com.webhopers.medorder.R
-import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.models.ProductCategory
 import com.webhopers.medorder.productList.ProductListActivity
 import com.webhopers.medorder.services.retrofit.WooCommerceRetrofitClient
@@ -25,6 +23,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         showProgressBar(true)
+        WooCommerceRetrofitClient.cacheDir = cacheDir
         WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
                 .getProductCategories()
                 .enqueue(object : Callback<List<ProductCategory>> {

@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.FirebaseCartAdapter
 import com.webhopers.medorder.myOrders.MyOrdersActivity
+import com.webhopers.medorder.profile.ProfileActivity
 import com.webhopers.medorder.services.firebase.FirebaseDatabaseService
 import kotlinx.android.synthetic.main.activity_cart.*
 
@@ -68,12 +69,17 @@ class CartActivity :
         val id = item.itemId
         when (id) {
             R.id.om_action_my_orders -> startMyOrdersActivity()
+            R.id.om_action_profile -> startProfileActivity()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun startMyOrdersActivity() {
         startActivity(Intent(this, MyOrdersActivity::class.java))
+    }
+
+    private fun startProfileActivity() {
+        startActivity(Intent(this, ProfileActivity::class.java))
     }
 
     override fun onSupportNavigateUp(): Boolean {

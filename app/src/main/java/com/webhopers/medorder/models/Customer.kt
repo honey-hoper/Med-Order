@@ -108,3 +108,13 @@ class Shipping {
     var country: String? = null
 
 }
+
+class CustomerSP (
+        val username: String,
+        val fullname: String,
+        val address: String,
+        val email: String,
+        val gstNo: String,
+        val drugLicense: String,
+        val phoneNo: String
+)

@@ -18,6 +18,7 @@ import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.models.ProductCategory
 import com.webhopers.medorder.myOrders.MyOrdersActivity
+import com.webhopers.medorder.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_product_list.*
 import kotlinx.android.synthetic.main.nav_list_item.view.*
 
@@ -58,6 +59,7 @@ class ProductListActivity :
         apl_nav_list_view.setOnItemClickListener { adapterView, view, i, l ->
             val id = map.get(view.nli_cat_name.text.toString())!!
             apl_drawer.closeDrawers()
+            window.decorView.background = ContextCompat.getDrawable(this, R.color.White)
             presenter.changeAdapter(id)
         }
 
@@ -92,6 +94,7 @@ class ProductListActivity :
         when (id) {
             R.id.action_open_cart -> startCartActivity()
             R.id.action_my_orders -> startMyOrdersActivity()
+            R.id.action_profile -> startProfileActivity()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -102,6 +105,10 @@ class ProductListActivity :
 
     private fun startMyOrdersActivity() {
         startActivity(Intent(this, MyOrdersActivity::class.java))
+    }
+
+    private fun startProfileActivity() {
+        startActivity(Intent(this, ProfileActivity::class.java))
     }
 
     /*

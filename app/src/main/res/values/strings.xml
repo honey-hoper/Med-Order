@@ -34,14 +34,36 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Register</string>
     <!-- Activity Register -->
-
+    
     <!-- Drawer -->
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
     <!-- Drawer -->
 
     <!-- Menu -->
-    <string name="my_orders">My Orders</string>
+    <string name="my_orders">Orders</string>
+    <string name="profile">Profile</string>
     <!-- Menu -->
+    
+    <!-- Activity Profile -->
+    <string name="username">username</string>
+    <string name="full_name">full name</string>
+    <string name="ap_email">email</string>
+    <string name="address">address</string>
+    <string name="drug_license">drug license</string>
+    <string name="gst_no">gst number</string>
+    <string name="phone_no">phone number</string>
+    <!-- Activity Profile -->
+    
+    <!-- Shared Preference -->
+    <string name="user_details_file">com.webhopers.medorder.USER_DETAIL_FILE</string>
+    <string name="username_key">USERNAME_KEY</string>
+    <string name="fullname_key">FULLNAME_KEY</string>
+    <string name="address_key">ADDRESS_KEY</string>
+    <string name="email_key">EMAIL_KEY</string>
+    <string name="drug_license_key">DRUG_LICENSE_KEY</string>
+    <string name="gst_no_key">GST_NO_KEY</string>
+    <string name="phone_no_key">PHONE_NO_KEY</string>
+    <!-- Shared Preference -->
 
 </resources>

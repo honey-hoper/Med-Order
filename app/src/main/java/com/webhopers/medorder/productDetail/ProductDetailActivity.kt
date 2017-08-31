@@ -11,6 +11,7 @@ import com.webhopers.medorder.cart.CartActivity
 import com.webhopers.medorder.dialogs.QuantityPickerDialog
 import com.webhopers.medorder.models.Product
 import com.webhopers.medorder.myOrders.MyOrdersActivity
+import com.webhopers.medorder.profile.ProfileActivity
 import com.webhopers.medorder.utils.convertDpToPixels
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import org.jsoup.Jsoup
@@ -75,6 +76,7 @@ class ProductDetailActivity : AppCompatActivity() {
         when (id) {
             R.id.action_open_cart -> startCartActivity()
             R.id.action_my_orders -> startMyOrdersActivity()
+            R.id.action_profile -> startProfileActivity()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -85,6 +87,10 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun startMyOrdersActivity() {
         startActivity(Intent(this, MyOrdersActivity::class.java))
+    }
+
+    private fun startProfileActivity() {
+        startActivity(Intent(this, ProfileActivity::class.java))
     }
 
     private fun getPackingSize(product: Product?): String {

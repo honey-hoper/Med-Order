@@ -45,6 +45,10 @@
         <item name="colorButtonNormal">@color/Red</item>
     </style>
 
+    <style name="AccentButton" parent="Base.Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
     <!-- Buttons -->
 
     <!-- Menu -->

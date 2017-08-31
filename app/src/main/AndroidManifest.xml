@@ -13,33 +13,30 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".productList.ProductListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".productDetail.ProductDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".cart.CartActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".myOrders.MyOrdersActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".profile.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-        </activity>
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".updateProfile.UpdateFullnameActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

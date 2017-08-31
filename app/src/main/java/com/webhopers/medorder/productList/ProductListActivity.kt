@@ -33,6 +33,7 @@ class ProductListActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
+        window.decorView.background = ContextCompat.getDrawable(this, R.drawable.select_category_drawable)
 
         presenter = ProductListPresenter(this)
         val cat = intent.getSerializableExtra("PRODUCT_CAT") as? List<ProductCategory>

@@ -4,10 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.webhopers.medorder.R
-import com.webhopers.medorder.updateProfile.UpdateEmailActivity
-import com.webhopers.medorder.updateProfile.UpdateFullnameActivity
-import com.webhopers.medorder.updateProfile.UpdateGSTActivity
-import com.webhopers.medorder.updateProfile.UpdatePhoneActivity
+import com.webhopers.medorder.updateProfile.*
 import com.webhopers.medorder.utils.getCustomerDetails
 import kotlinx.android.synthetic.main.activity_profile.*
 
@@ -37,6 +34,7 @@ class ProfileActivity : AppCompatActivity() {
         ap_edit_email_btn.setOnClickListener { startActivity(Intent(this, UpdateEmailActivity::class.java)) }
         ap_edit_phone_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePhoneActivity::class.java)) }
         ap_edit_gst_btn.setOnClickListener { startActivity(Intent(this, UpdateGSTActivity::class.java)) }
+        ap_edit_drgl_btn.setOnClickListener { startActivity(Intent(this, UpdateDrugLicenceActivity::class.java)) }
     }
 
     override fun onSupportNavigateUp(): Boolean {

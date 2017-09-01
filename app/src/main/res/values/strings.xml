@@ -61,7 +61,7 @@
     <string name="fullname_key">FULLNAME_KEY</string>
     <string name="address_key">ADDRESS_KEY</string>
     <string name="email_key">EMAIL_KEY</string>
-    <string name="drug_license_key">DRUG_LICENSE_KEY</string>
+    <string name="drug_licence_key">DRUG_LICENCE_KEY</string>
     <string name="gst_no_key">GST_NO_KEY</string>
     <string name="phone_no_key">PHONE_NO_KEY</string>
     <!-- Shared Preference -->
@@ -71,6 +71,7 @@
     <string name="update">Update</string>
     <string name="enter_phone_no">Enter Phone Number</string>
     <string name="enter_gst_no">Enter GST Number</string>
+    <string name="enter_dl">Enter Drug Licence</string>
     <!-- Update Profile Activity -->
 
 

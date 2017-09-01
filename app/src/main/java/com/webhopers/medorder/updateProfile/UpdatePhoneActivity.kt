@@ -9,26 +9,27 @@ import android.widget.Toast
 import com.webhopers.medorder.R
 import com.webhopers.medorder.models.Customer
 import com.webhopers.medorder.models.CustomerResponse
+import com.webhopers.medorder.models.MetaData
 import com.webhopers.medorder.services.retrofit.WooCommerceRetrofitClient
 import com.webhopers.medorder.services.woocommerce.WooCommerceService
-import kotlinx.android.synthetic.main.activity_update_email.*
+import kotlinx.android.synthetic.main.activity_update_phone.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UpdateEmailActivity : AppCompatActivity() {
+class UpdatePhoneActivity : AppCompatActivity() {
 
-    lateinit var emailField: TextInputEditText
+    lateinit var phoneField: TextInputEditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_email)
+        setContentView(R.layout.activity_update_phone)
 
         initUI()
 
-        emailField = aue_email_field
-        aue_btn.setOnClickListener { onUpdate() }
+        phoneField = aup_phone_no_field
+        aup_btn.setOnClickListener { onUpdate() }
     }
 
     private fun initUI() {
@@ -36,7 +37,7 @@ class UpdateEmailActivity : AppCompatActivity() {
     }
 
     private fun setUpToolbar() {
-        setSupportActionBar(aue_toolbar)
+        setSupportActionBar(aup_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -48,17 +49,20 @@ class UpdateEmailActivity : AppCompatActivity() {
     }
 
     fun onUpdate() {
-        val email = emailField.text.toString().trim()
+        val phone = phoneField.text.toString().trim()
 
-        if (email.isNullOrBlank()) {
-            emailField.error = "Empty"
+        if (phone.isNullOrBlank()) {
+            phoneField.error = "Empty"
             return
         }
 
         showProgressBar(true)
 
         val customer = Customer().apply {
-            this.email = email
+            this.metaData = listOf(MetaData().apply {
+                this.key = "phone1"
+                this.value = phone
+            })
         }
 
         WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
@@ -66,8 +70,8 @@ class UpdateEmailActivity : AppCompatActivity() {
                 .enqueue(object : Callback<CustomerResponse> {
                     override fun onResponse(call: Call<CustomerResponse>, response: Response<CustomerResponse>) {
                         showProgressBar(false)
-                        updateEmail(email)
-                        makeToast("Email Updated")
+                        updatePhoneNumber(phone)
+                        makeToast("Phone Number Updated")
                     }
 
                     override fun onFailure(call: Call<CustomerResponse>, t: Throwable) {
@@ -78,16 +82,16 @@ class UpdateEmailActivity : AppCompatActivity() {
     }
 
     fun showProgressBar(bool: Boolean) {
-        if (bool) aue_progress_bar.visibility = View.VISIBLE
-        else aue_progress_bar.visibility = View.INVISIBLE
+        if (bool) aup_progress_bar.visibility = View.VISIBLE
+        else aup_progress_bar.visibility = View.INVISIBLE
     }
 
     fun makeToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    fun updateEmail(email: String) {
+    fun updatePhoneNumber(phone: String) {
         val preferences = getSharedPreferences(getString(R.string.user_details_file), Context.MODE_PRIVATE)
-        preferences.edit().putString(getString(R.string.email_key), email).apply()
+        preferences.edit().putString(getString(R.string.phone_no_key), phone).apply()
     }
 }

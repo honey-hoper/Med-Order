@@ -69,6 +69,8 @@
     <!-- Update Profile Activity -->
     <string name="enter_username">Enter Username</string>
     <string name="update">Update</string>
+    <string name="enter_phone_no">Enter Phone Number</string>
     <!-- Update Profile Activity -->
+
 
 </resources>

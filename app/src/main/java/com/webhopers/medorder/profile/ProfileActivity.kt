@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.webhopers.medorder.R
 import com.webhopers.medorder.updateProfile.UpdateEmailActivity
 import com.webhopers.medorder.updateProfile.UpdateFullnameActivity
+import com.webhopers.medorder.updateProfile.UpdatePhoneActivity
 import com.webhopers.medorder.utils.getCustomerDetails
 import kotlinx.android.synthetic.main.activity_profile.*
 
@@ -33,6 +34,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun addButtonListeners() {
         ap_edit_fullname_btn.setOnClickListener {startActivity(Intent(this, UpdateFullnameActivity::class.java))}
         ap_edit_email_btn.setOnClickListener { startActivity(Intent(this, UpdateEmailActivity::class.java)) }
+        ap_edit_phone_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePhoneActivity::class.java)) }
     }
 
     override fun onSupportNavigateUp(): Boolean {

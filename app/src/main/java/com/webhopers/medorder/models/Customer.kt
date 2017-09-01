@@ -16,6 +16,9 @@ class Customer (
     @SerializedName("last_name")
     @Expose
     var lastName: String? = null,
+    @SerializedName("phone")
+    @Expose
+    var phone: String? = null,
     @SerializedName("password")
     @Expose
     var password: String? = null,
@@ -24,7 +27,10 @@ class Customer (
     var billing: Billing? = null,
     @SerializedName("shipping")
     @Expose
-    var shipping: Shipping? = null
+    var shipping: Shipping? = null,
+    @SerializedName("meta_data")
+    @Expose
+    var metaData: List<MetaData>? = null
 
 )
 
@@ -109,6 +115,16 @@ class Shipping {
     @Expose
     var country: String? = null
 
+}
+
+
+class MetaData {
+    @SerializedName("key")
+    @Expose
+    var key: String? = null
+    @SerializedName("value")
+    @Expose
+    var value: String? = null
 }
 
 class CustomerSP (

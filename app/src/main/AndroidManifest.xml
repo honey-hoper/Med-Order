@@ -50,7 +50,10 @@
         <activity
             android:name=".updateProfile.UpdateDrugLicenceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".updateProfile.UpdateAddressActivity"
+        <activity
+            android:name=".updateProfile.UpdateAddressActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".updateProfile.UpdatePANActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

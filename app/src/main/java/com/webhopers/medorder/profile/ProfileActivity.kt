@@ -36,6 +36,7 @@ class ProfileActivity : AppCompatActivity() {
         ap_edit_gst_btn.setOnClickListener { startActivity(Intent(this, UpdateGSTActivity::class.java)) }
         ap_edit_drgl_btn.setOnClickListener { startActivity(Intent(this, UpdateDrugLicenceActivity::class.java)) }
         ap_edit_address_btn.setOnClickListener { startActivity(Intent(this, UpdateAddressActivity::class.java)) }
+        ap_edit_pan_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePANActivity::class.java)) }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -59,6 +60,7 @@ class ProfileActivity : AppCompatActivity() {
         ap_gst_view.text = customer.gstNo
         ap_drgl_view.text = customer.drugLicense
         ap_phone_no_view.text = customer.phoneNo
+        ap_pan_no_view.text = customer.panNo
 
     }
 

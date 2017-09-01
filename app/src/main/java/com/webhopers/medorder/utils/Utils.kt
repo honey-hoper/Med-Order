@@ -25,6 +25,7 @@ fun getCustomerDetails(context: Context): CustomerSP {
     val gstNo = preferences.getString(context.getString(R.string.gst_no_key), "")
     val drugLicense = preferences.getString(context.getString(R.string.drug_licence_key), "")
     val phoneNo = preferences.getString(context.getString(R.string.phone_no_key), "")
+    val panNo = preferences.getString(context.getString(R.string.pan_no_key), "")
 
-    return CustomerSP(username, fullname, address, email, gstNo, drugLicense, phoneNo)
+    return CustomerSP(username, fullname, address, email, gstNo, drugLicense, phoneNo, panNo)
 }

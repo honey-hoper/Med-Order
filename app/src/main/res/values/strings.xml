@@ -53,6 +53,7 @@
     <string name="drug_license">drug license</string>
     <string name="gst_no">gst number</string>
     <string name="phone_no">phone number</string>
+    <string name="pan_no">pan number</string>
     <!-- Activity Profile -->
 
     <!-- Shared Preference -->
@@ -64,6 +65,7 @@
     <string name="drug_licence_key">DRUG_LICENCE_KEY</string>
     <string name="gst_no_key">GST_NO_KEY</string>
     <string name="phone_no_key">PHONE_NO_KEY</string>
+    <string name="pan_no_key">PAN_NO_KEY</string>
     <!-- Shared Preference -->
 
     <!-- Update Profile Activity -->
@@ -77,6 +79,7 @@
     <string name="enter_state">Enter State</string>
     <string name="enter_zip">Enter Zip</string>
     <string name="enter_country">Enter Country</string>
+    <string name="enter_pan_no">Enter PAN Number</string>
 
     <!-- Update Profile Activity -->
 

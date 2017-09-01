@@ -134,5 +134,6 @@ class CustomerSP (
         val email: String,
         val gstNo: String,
         val drugLicense: String,
-        val phoneNo: String
+        val phoneNo: String,
+        val panNo: String
 )

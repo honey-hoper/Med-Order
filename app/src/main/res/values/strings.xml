@@ -70,6 +70,7 @@
     <string name="enter_username">Enter Username</string>
     <string name="update">Update</string>
     <string name="enter_phone_no">Enter Phone Number</string>
+    <string name="enter_gst_no">Enter GST Number</string>
     <!-- Update Profile Activity -->
 
 

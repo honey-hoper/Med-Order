@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/auf_appbar"
+        android:id="@+id/au_gst_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/auf_toolbar"
+            android:id="@+id/au_gst_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:elevation="4dp"
@@ -29,58 +29,34 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.design.widget.TextInputLayout
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/au_gst_gst_no_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_marginBottom="8dp">
+            android:singleLine="true"
+            android:maxLines="1"
+            android:maxLength="50"
+            android:hint="@string/enter_gst_no"/>
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/auf_first_name_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:maxLength="50"
-                android:hint="@string/first_name"/>
+    </android.support.design.widget.TextInputLayout>
 
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            >
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/auf_last_name_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:maxLength="50"
-                android:hint="@string/last_name"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-    </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/auf_progress_bar"
+        android:id="@+id/au_gst_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="invisible"/>
 
     <Button
-        android:id="@+id/auf_btn"
+        android:id="@+id/au_gst_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

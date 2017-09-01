@@ -41,7 +41,10 @@
         <activity
             android:name=".updateProfile.UpdateEmailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".updateProfile.UpdatePhoneActivity"
+        <activity
+            android:name=".updateProfile.UpdatePhoneActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".updateProfile.UpdateGSTActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

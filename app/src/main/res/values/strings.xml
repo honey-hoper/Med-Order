@@ -72,6 +72,12 @@
     <string name="enter_phone_no">Enter Phone Number</string>
     <string name="enter_gst_no">Enter GST Number</string>
     <string name="enter_dl">Enter Drug Licence</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="enter_city">Enter City</string>
+    <string name="enter_state">Enter State</string>
+    <string name="enter_zip">Enter Zip</string>
+    <string name="enter_country">Enter Country</string>
+
     <!-- Update Profile Activity -->
 
 

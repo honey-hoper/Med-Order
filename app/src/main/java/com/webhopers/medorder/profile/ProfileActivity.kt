@@ -35,6 +35,7 @@ class ProfileActivity : AppCompatActivity() {
         ap_edit_phone_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePhoneActivity::class.java)) }
         ap_edit_gst_btn.setOnClickListener { startActivity(Intent(this, UpdateGSTActivity::class.java)) }
         ap_edit_drgl_btn.setOnClickListener { startActivity(Intent(this, UpdateDrugLicenceActivity::class.java)) }
+        ap_edit_address_btn.setOnClickListener { startActivity(Intent(this, UpdateAddressActivity::class.java)) }
     }
 
     override fun onSupportNavigateUp(): Boolean {

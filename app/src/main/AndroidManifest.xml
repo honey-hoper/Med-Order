@@ -47,7 +47,10 @@
         <activity
             android:name=".updateProfile.UpdateGSTActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".updateProfile.UpdateDrugLicenceActivity"
+        <activity
+            android:name=".updateProfile.UpdateDrugLicenceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".updateProfile.UpdateAddressActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

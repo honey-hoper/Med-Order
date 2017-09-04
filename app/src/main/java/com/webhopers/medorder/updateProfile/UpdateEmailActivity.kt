@@ -32,7 +32,13 @@ class UpdateEmailActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setField()
         setUpToolbar()
+    }
+
+    private fun setField() {
+        val email = intent.getStringExtra("DATA")
+        aue_email_field.setText(email)
     }
 
     private fun setUpToolbar() {

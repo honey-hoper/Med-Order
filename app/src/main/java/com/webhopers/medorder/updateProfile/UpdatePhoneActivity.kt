@@ -33,7 +33,13 @@ class UpdatePhoneActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setField()
         setUpToolbar()
+    }
+
+    private fun setField() {
+        val phone = intent.getStringExtra("DATA")
+        aup_phone_no_field.setText(phone)
     }
 
     private fun setUpToolbar() {

@@ -34,7 +34,17 @@ class UpdateFullnameActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setField()
         setUpToolbar()
+    }
+
+    private fun setField() {
+        val fullname = intent.getStringExtra("DATA")
+        val firstName = fullname.substringBeforeLast(" ")
+        val lastName = fullname.substringAfterLast(" ")
+
+        auf_first_name_field.setText(firstName)
+        auf_last_name_field.setText(lastName)
     }
 
     private fun setUpToolbar() {

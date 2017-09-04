@@ -33,7 +33,13 @@ class UpdatePANActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setField()
         setUpToolbar()
+    }
+
+    private fun setField() {
+        val PAN = intent.getStringExtra("DATA")
+        au_pan_pan_field.setText(PAN)
     }
 
     private fun setUpToolbar() {

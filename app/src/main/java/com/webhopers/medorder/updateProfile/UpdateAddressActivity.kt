@@ -12,6 +12,7 @@ import com.webhopers.medorder.models.CustomerResponse
 import com.webhopers.medorder.models.MetaData
 import com.webhopers.medorder.services.retrofit.WooCommerceRetrofitClient
 import com.webhopers.medorder.services.woocommerce.WooCommerceService
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_update_address.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,6 +44,31 @@ class UpdateAddressActivity : AppCompatActivity() {
 
     private fun initUI() {
         setUpToolbar()
+        setFields()
+
+    }
+
+    private fun setFields() {
+        val text = intent.getStringExtra("DATA")
+        if (text.isNullOrBlank())
+            return
+
+        val address = text.substringBefore("\n")
+
+        val cityAndPin = text.substringAfter("\n").substringBefore("\n")
+        val city = cityAndPin.substringBefore(",")
+        val pin = cityAndPin.substringAfter(", ")
+
+        val stateAndCountry = text.substringAfter("\n").substringAfter("\n")
+        val state = stateAndCountry.substringBefore(",")
+        val country = stateAndCountry.substringAfter(", ")
+
+
+        aua_address_field.setText(address)
+        aua_city_field.setText(city)
+        aua_zip_field.setText(pin)
+        aua_state_field.setText(state)
+        aua_country_field.setText(country)
     }
 
     private fun setUpToolbar() {

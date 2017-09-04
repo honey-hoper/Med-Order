@@ -30,13 +30,35 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun addButtonListeners() {
-        ap_edit_fullname_btn.setOnClickListener {startActivity(Intent(this, UpdateFullnameActivity::class.java))}
-        ap_edit_email_btn.setOnClickListener { startActivity(Intent(this, UpdateEmailActivity::class.java)) }
-        ap_edit_phone_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePhoneActivity::class.java)) }
-        ap_edit_gst_btn.setOnClickListener { startActivity(Intent(this, UpdateGSTActivity::class.java)) }
-        ap_edit_drgl_btn.setOnClickListener { startActivity(Intent(this, UpdateDrugLicenceActivity::class.java)) }
-        ap_edit_address_btn.setOnClickListener { startActivity(Intent(this, UpdateAddressActivity::class.java)) }
-        ap_edit_pan_no_btn.setOnClickListener { startActivity(Intent(this, UpdatePANActivity::class.java)) }
+        ap_edit_fullname_btn.setOnClickListener {
+            val intent = Intent(this, UpdateFullnameActivity::class.java)
+            intent.putExtra("DATA", ap_fullname_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_email_btn.setOnClickListener { val intent = Intent(this, UpdateEmailActivity::class.java)
+            intent.putExtra("DATA", ap_email_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_phone_no_btn.setOnClickListener { val intent = Intent(this, UpdatePhoneActivity::class.java)
+            intent.putExtra("DATA", ap_phone_no_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_gst_btn.setOnClickListener { val intent = Intent(this, UpdateGSTActivity::class.java)
+            intent.putExtra("DATA", ap_gst_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_drgl_btn.setOnClickListener { val intent = Intent(this, UpdateDrugLicenceActivity::class.java)
+            intent.putExtra("DATA", ap_drgl_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_address_btn.setOnClickListener { val intent = Intent(this, UpdateAddressActivity::class.java)
+            intent.putExtra("DATA", ap_address_view.text.toString().trim())
+            startActivity(intent)
+        }
+        ap_edit_pan_no_btn.setOnClickListener { val intent = Intent(this, UpdatePANActivity::class.java)
+            intent.putExtra("DATA", ap_pan_no_view.text.toString().trim())
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

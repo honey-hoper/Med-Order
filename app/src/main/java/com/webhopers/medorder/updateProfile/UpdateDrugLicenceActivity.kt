@@ -33,7 +33,13 @@ class UpdateDrugLicenceActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setFields()
         setUpToolbar()
+    }
+
+    private fun setFields() {
+        val drugLicense = intent.getStringExtra("DATA")
+        audl_dl_field.setText(drugLicense)
     }
 
     private fun setUpToolbar() {

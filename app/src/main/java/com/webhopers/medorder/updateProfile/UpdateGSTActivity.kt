@@ -33,7 +33,13 @@ class UpdateGSTActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        setField()
         setUpToolbar()
+    }
+
+    private fun setField() {
+        val GST = intent.getStringExtra("DATA")
+        au_gst_gst_no_field.setText(GST)
     }
 
     private fun setUpToolbar() {

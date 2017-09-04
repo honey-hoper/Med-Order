@@ -87,5 +87,12 @@
     <string name="order_number">Order number:</string>
     <!--My Order Activity -->
 
+    <!-- Order Detail Activity -->
+    <string name="items">Items</string>
+    <string name="quantity_">Quantity</string>
+    <string name="tax">Tax:</string>
+    <string name="amount">Amount:</string>
+    <!-- Order Detail Activity -->
+
 
 </resources>

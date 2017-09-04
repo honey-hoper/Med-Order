@@ -2,6 +2,7 @@ package com.webhopers.medorder.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class Order {
     @SerializedName("customer_id")
@@ -21,7 +22,7 @@ class Order {
     var lineItems: List<LineItem>? = null
 }
 
-class LineItem {
+class LineItem : Serializable{
     @SerializedName("product_id")
     @Expose
     var productId: Int? = null
@@ -33,7 +34,7 @@ class LineItem {
     var quantity: Int? = null
 }
 
-class OrderResponse {
+class OrderResponse : Serializable{
 
     @SerializedName("id")
     @Expose

@@ -53,7 +53,10 @@
         <activity
             android:name=".updateProfile.UpdateAddressActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".updateProfile.UpdatePANActivity"
+        <activity
+            android:name=".updateProfile.UpdatePANActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".orderDetail.OrderDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

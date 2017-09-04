@@ -56,7 +56,10 @@
         <activity
             android:name=".updateProfile.UpdatePANActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".orderDetail.OrderDetailActivity"
+        <activity
+            android:name=".orderDetail.OrderDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".passwordReset.PasswordResetActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

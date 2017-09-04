@@ -43,6 +43,7 @@
     <!-- Menu -->
     <string name="my_orders">Orders</string>
     <string name="profile">Profile</string>
+    <string name="rst_pswd">Reset Password</string>
     <!-- Menu -->
 
     <!-- Activity Profile -->
@@ -54,6 +55,9 @@
     <string name="gst_no">gst number</string>
     <string name="phone_no">phone number</string>
     <string name="pan_no">pan number</string>
+    <string name="pswd">Enter Password</string>
+    <string name="cnfrm_pswd">Confirm Password</string>
+    <string name="reset">Reset</string>
     <!-- Activity Profile -->
 
     <!-- Shared Preference -->

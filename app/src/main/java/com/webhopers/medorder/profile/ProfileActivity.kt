@@ -3,7 +3,10 @@ package com.webhopers.medorder.profile
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.webhopers.medorder.R
+import com.webhopers.medorder.passwordReset.PasswordResetActivity
 import com.webhopers.medorder.updateProfile.*
 import com.webhopers.medorder.utils.getCustomerDetails
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -86,6 +89,24 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.profile_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val itemId = item.itemId
+
+        when(itemId) {
+            R.id.action_pswd_rst -> startPasswordResetActivity()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun startPasswordResetActivity() {
+        startActivity(Intent(this, PasswordResetActivity::class.java))
+    }
 
 
 

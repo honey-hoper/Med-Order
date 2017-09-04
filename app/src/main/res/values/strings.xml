@@ -83,5 +83,9 @@
 
     <!-- Update Profile Activity -->
 
+    <!--My Order Activity -->
+    <string name="order_number">Order number:</string>
+    <!--My Order Activity -->
+
 
 </resources>

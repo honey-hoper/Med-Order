@@ -27,10 +27,9 @@ class MyOrdersAdapter(val dataset: List<OrderResponse>) : RecyclerView.Adapter<M
 class MyOrderListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(orderResponse: OrderResponse) {
         itemView.apply {
-            orderResponse.lineItems?.forEach {
-                oli_product_names.append("${it.productName}:    ${it.quantity}\n")
-            }
-            oli_product_status.text = orderResponse.status
+            oli_order_number.text = orderResponse.orderNumber
+            oli_order_date.text = orderResponse.dateCreated?.substringBefore("T")
+            oli_order_status.text = orderResponse.status
         }
     }
 }

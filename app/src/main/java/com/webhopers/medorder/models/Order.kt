@@ -38,9 +38,21 @@ class OrderResponse {
     @SerializedName("id")
     @Expose
     var id: Int? = null
+    @SerializedName("number")
+    @Expose
+    var orderNumber: String? = null
+    @SerializedName("date_created")
+    @Expose
+    var dateCreated: String? = null
     @SerializedName("status")
     @Expose
     var status: String? = null
+    @SerializedName("total")
+    @Expose
+    var totalAmount: String? = null
+    @SerializedName("total_tax")
+    @Expose
+    var totalTax: String? = null
     @SerializedName("line_items")
     @Expose
     var lineItems: List<LineItem>? = null

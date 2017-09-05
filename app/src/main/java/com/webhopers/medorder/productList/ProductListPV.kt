@@ -30,6 +30,7 @@ class ProductListPresenter(val view: ProductListView): Presenter {
                             val dataset = response.body()!!
                             val totalProducts = response.headers().get("X-WP-Total")!!.toInt()
                             view.setAdater(dataset.toMutableList(), totalProducts)
+                            view.runRecyclerViewAnim()
                         } else Log.d("Error", "${response.code()}")
                     }
 
@@ -39,4 +40,5 @@ class ProductListPresenter(val view: ProductListView): Presenter {
 
 interface ProductListView: View {
     fun setAdater(dataset: MutableList<Product>, totalProducts: Int)
+    fun runRecyclerViewAnim()
 }

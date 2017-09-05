@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.ArrayAdapter
 import com.webhopers.medorder.R
 import com.webhopers.medorder.adapters.ListAdapter
@@ -127,6 +128,25 @@ class ProductListActivity :
             //addOnScrollListener(ScrollListener(LinearLayoutManager(context), adapter))
         }
 
+    }
+
+    override fun runRecyclerViewAnim() {
+        apl_recyler_view.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener{
+            override fun onPreDraw(): Boolean {
+                apl_recyler_view.viewTreeObserver.removeOnPreDrawListener(this)
+
+                for (i in 0..apl_recyler_view.childCount - 1) {
+                    val v = apl_recyler_view.getChildAt(i)
+                    v.alpha = 0.0f
+                    v.animate().alpha(1.0f)
+                            .setDuration(300)
+                            .setStartDelay(i * 50L)
+                            .start()
+                }
+
+                return true
+            }
+        })
     }
 
 }

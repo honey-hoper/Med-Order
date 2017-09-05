@@ -11,12 +11,10 @@ import com.webhopers.medorder.R
 import com.webhopers.medorder.models.Billing
 import com.webhopers.medorder.models.Customer
 import com.webhopers.medorder.models.CustomerResponse
-import com.webhopers.medorder.models.MetaData
 import com.webhopers.medorder.services.retrofit.WooCommerceRetrofitClient
 import com.webhopers.medorder.services.woocommerce.WooCommerceService
 import com.webhopers.medorder.utils.getCustomerDetails
 import kotlinx.android.synthetic.main.activity_change_billing_address.*
-import kotlinx.android.synthetic.main.activity_update_address.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

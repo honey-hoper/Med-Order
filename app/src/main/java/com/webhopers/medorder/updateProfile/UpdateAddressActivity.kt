@@ -12,7 +12,6 @@ import com.webhopers.medorder.models.CustomerResponse
 import com.webhopers.medorder.models.MetaData
 import com.webhopers.medorder.services.retrofit.WooCommerceRetrofitClient
 import com.webhopers.medorder.services.woocommerce.WooCommerceService
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_update_address.*
 import retrofit2.Call
 import retrofit2.Callback

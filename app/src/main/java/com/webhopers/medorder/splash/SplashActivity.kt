@@ -23,7 +23,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         showProgressBar(true)
-        WooCommerceRetrofitClient.cacheDir = cacheDir
         WooCommerceRetrofitClient.retrofit.create(WooCommerceService::class.java)
                 .getProductCategories()
                 .enqueue(object : Callback<List<ProductCategory>> {

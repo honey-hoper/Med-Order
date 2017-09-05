@@ -65,6 +65,7 @@
     <string name="username_key">USERNAME_KEY</string>
     <string name="fullname_key">FULLNAME_KEY</string>
     <string name="address_key">ADDRESS_KEY</string>
+    <string name="billing_address_key">BILLING_ADDRESS_KEY</string>
     <string name="email_key">EMAIL_KEY</string>
     <string name="drug_licence_key">DRUG_LICENCE_KEY</string>
     <string name="gst_no_key">GST_NO_KEY</string>
@@ -97,6 +98,11 @@
     <string name="tax">Tax:</string>
     <string name="amount">Amount:</string>
     <!-- Order Detail Activity -->
+
+    <!-- Change Billing Address Activity -->
+    <string name="billing_address">Billing Address</string>
+    <string name="or">OR</string>
+    <!-- Change Billing Address Activity -->
 
 
 </resources>

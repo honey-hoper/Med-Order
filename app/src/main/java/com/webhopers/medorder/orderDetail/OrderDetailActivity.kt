@@ -2,6 +2,7 @@ package com.webhopers.medorder.orderDetail
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import com.webhopers.medorder.R
 import com.webhopers.medorder.models.OrderResponse
 import kotlinx.android.synthetic.main.activity_order_detail.*
@@ -31,7 +32,7 @@ class OrderDetailActivity : AppCompatActivity() {
 
     private fun initUI() {
         setUpToolbar()
-
+        window.decorView.background = ContextCompat.getDrawable(this, R.drawable.order_detail_background)
 
     }
 

@@ -21,11 +21,12 @@ fun getCustomerDetails(context: Context): CustomerSP {
     val username = preferences.getString(context.getString(R.string.username_key), "")
     val fullname = preferences.getString(context.getString(R.string.fullname_key), "")
     val address = preferences.getString(context.getString(R.string.address_key), "")
+    val billingAddress = preferences.getString(context.getString(R.string.billing_address_key), "")
     val email = preferences.getString(context.getString(R.string.email_key), "")
     val gstNo = preferences.getString(context.getString(R.string.gst_no_key), "")
     val drugLicense = preferences.getString(context.getString(R.string.drug_licence_key), "")
     val phoneNo = preferences.getString(context.getString(R.string.phone_no_key), "")
     val panNo = preferences.getString(context.getString(R.string.pan_no_key), "")
 
-    return CustomerSP(username, fullname, address, email, gstNo, drugLicense, phoneNo, panNo)
+    return CustomerSP(username, fullname, address, billingAddress, email, gstNo, drugLicense, phoneNo, panNo)
 }

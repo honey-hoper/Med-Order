@@ -131,6 +131,7 @@ class CustomerSP (
         val username: String,
         val fullname: String,
         val address: String,
+        val billingAddress: String,
         val email: String,
         val gstNo: String,
         val drugLicense: String,

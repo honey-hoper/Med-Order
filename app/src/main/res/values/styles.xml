@@ -60,7 +60,7 @@
 
     <!-- Progress Bar -->
     <style name="ProgressBar" parent="Theme.AppCompat.Light">
-        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent2</item>
     </style>
     <!-- Progress Bar -->
 

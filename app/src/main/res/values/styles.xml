@@ -58,4 +58,10 @@
     </style>
     <!-- Menu -->
 
+    <!-- Progress Bar -->
+    <style name="ProgressBar" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+    <!-- Progress Bar -->
+
 </resources>

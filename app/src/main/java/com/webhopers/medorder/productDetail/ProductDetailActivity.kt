@@ -50,6 +50,7 @@ class ProductDetailActivity : AppCompatActivity() {
         setSupportActionBar(apd_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     private fun getImage(url: String?) {
